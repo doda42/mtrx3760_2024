@@ -427,11 +427,11 @@ void CCircuit::BuildFromCinStream()
       }
       else if( GateType.compare( "and" ) == 0 )
       {
-        pNewComponent = new CXorGate;
+        pNewComponent = new CAndGate;
       }
       else if( GateType.compare( "or" ) == 0 )
       {
-        pNewComponent = new CXorGate;
+        pNewComponent = new COrGate;
       }
       else if( GateType.compare( "not" ) == 0 )
       {
