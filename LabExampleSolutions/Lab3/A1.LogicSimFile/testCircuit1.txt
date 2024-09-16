@@ -1,0 +1,22 @@
+# A 3-gate test circuit
+
+component xor myXor0
+component and myAnd0
+component and myAnd1
+
+wire myXor0 0 inWireA
+wire myXor0 1 inWireB
+wire myAnd0 1 inWireC
+wire myAnd0 0 wireXor0And0
+
+connect myXor0 wireXor0And0 0
+connect inWireA myAnd1 0
+connect inWireB myAnd1 1
+
+testerOutput myAnd0 0
+testerOutput myAnd1 0
+testerInput inWireA
+testerInput inWireB
+testerInput inWireC
+
+end
