@@ -1,0 +1,10 @@
+Your team have developed two new kinds of fire detector sensor for use on the turtlebot platform. One is based on a camera, and the other is based on a photodiode.
+
+You are in charge of software integration. Design a program that is capable of running either the camera or photodiode-based sensor, selecting between them using a user input at launch. The program should expose the sensor measurements to the rest of the robotic system. You can assume the existing system uses the LiDAR and wheels to perform wall following similar to the task in Project 1.
+
+Both camera and photodiode sensors report a single integer that indicates the probability that there is a fire in front of the robot, as a percentage. Both models should keep a history of the five most recent sensor readings.
+
+To help get you started while the team are developing the low-level hardware drivers they have provided you with a HardwareEmulator class that generates callbacks similar to how the real sensor will behave. See HardwareEmulator.h for details.
+
+
+
