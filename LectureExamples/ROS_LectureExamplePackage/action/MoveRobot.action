@@ -1,0 +1,10 @@
+# Goal
+int32 x
+int32 y
+---
+# Result
+bool success
+---
+# Feedback
+int32 current_x
+int32 current_y

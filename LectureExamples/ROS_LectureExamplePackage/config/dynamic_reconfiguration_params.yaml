@@ -1,0 +1,3 @@
+motion_control_node:
+  ros__parameters:
+    speed: 30
