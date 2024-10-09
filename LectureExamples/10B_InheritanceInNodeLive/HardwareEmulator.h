@@ -26,7 +26,7 @@
 class ISensorCallable
 {
   public:
-  virtual void Callback( int Value ) = 0;
+    virtual void Callback( int Value ) = 0;
 };
 
 

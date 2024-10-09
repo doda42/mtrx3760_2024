@@ -1,3 +1,12 @@
+// Example of a sensor node using inheritance internally to expose a node
+// with different behaviours at runtime; this is the version that was
+// produced ahead of time while working out the problem. For the version
+// coded live in-lecture see SensorNodeLiveCoded.cpp.
+//
+// In this example we'll use a stand-in CNode that knows how to "publish" by
+// printing to the screen as a stand-in for ROS 2. This allows for lightweight
+// development during the early design stage for this project.
+
 #include "HardwareEmulator.h"
 
 #include <iostream>
