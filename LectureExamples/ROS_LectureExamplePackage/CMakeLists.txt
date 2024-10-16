@@ -19,6 +19,11 @@ find_package(action_msgs REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 find_package(lifecycle_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(cv_bridge REQUIRED)
+find_package(OpenCV REQUIRED)
+
+include_directories(${OpenCV_INCLUDE_DIRS})
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/CustomMessage.msg"
@@ -72,6 +77,18 @@ ament_target_dependencies(actionClient rclcpp mtrx3760 action_msgs rclcpp_action
 add_executable(lifecycleNode src/lifecycle_node.cpp)
 ament_target_dependencies(lifecycleNode rclcpp_lifecycle std_msgs lifecycle_msgs)
 
+add_executable(simpleCameraDisplay src/simple_camera_display.cpp)
+ament_target_dependencies(simpleCameraDisplay rclcpp std_msgs sensor_msgs cv_bridge)
+target_link_libraries(simpleCameraDisplay ${OpenCV_LIBRARIES})
+
+add_executable(aprilTagDetection src/april_tag_detection.cpp)
+ament_target_dependencies(aprilTagDetection rclcpp std_msgs sensor_msgs cv_bridge)
+target_link_libraries(aprilTagDetection ${OpenCV_LIBRARIES})
+
+add_executable(colourDetection src/colour_detection.cpp)
+ament_target_dependencies(colourDetection rclcpp std_msgs sensor_msgs cv_bridge)
+target_link_libraries(colourDetection ${OpenCV_LIBRARIES})
+
 install(TARGETS
   simplePublisher
   simpleSubscriber
@@ -88,6 +105,9 @@ install(TARGETS
   actionServer
   actionClient
   lifecycleNode
+  simpleCameraDisplay
+  aprilTagDetection
+  colourDetection
   DESTINATION lib/${PROJECT_NAME}
 )
 
