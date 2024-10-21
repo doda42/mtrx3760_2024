@@ -22,6 +22,7 @@ find_package(lifecycle_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(nav2_msgs REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
@@ -89,6 +90,9 @@ add_executable(colourDetection src/colour_detection.cpp)
 ament_target_dependencies(colourDetection rclcpp std_msgs sensor_msgs cv_bridge)
 target_link_libraries(colourDetection ${OpenCV_LIBRARIES})
 
+add_executable(navigate src/navigate.cpp)
+ament_target_dependencies(navigate rclcpp action_msgs rclcpp_action nav2_msgs)
+
 install(TARGETS
   simplePublisher
   simpleSubscriber
@@ -108,6 +112,7 @@ install(TARGETS
   simpleCameraDisplay
   aprilTagDetection
   colourDetection
+  navigate
   DESTINATION lib/${PROJECT_NAME}
 )
 
